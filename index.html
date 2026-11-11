@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carmiville Academy | Mararaba, Nasarawa State</title>
+  <meta name="description" content="Carmiville Academy, Mararaba, Nasarawa State. Quality nursery, primary and secondary education in a safe learning environment.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f2c4c;
+      --navy-dark: #0a1f35;
+      --gold: #c9a227;
+      --gold-dark: #a8841a;
+      --cream: #f8f5f0;
+      --white: #ffffff;
+      --text: #2d2d2d;
+      --muted: #5a5a5a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: var(--cream);
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+    .header-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+    .logo span { color: var(--gold); }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+    nav a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.92;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    nav a:hover { opacity: 1; color: var(--gold); }
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      background: var(--navy-dark);
+      color: white;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1600&q=80') center/cover no-repeat;
+      opacity: 0.35;
+    }
+    .hero-content {
+      position: relative;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 4rem 1.25rem;
+      width: 100%;
+    }
+    .hero h1 {
+      font-size: clamp(1.9rem, 5vw, 3rem);
+      line-height: 1.2;
+      margin-bottom: 0.85rem;
+      max-width: 620px;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 520px;
+      opacity: 0.92;
+      margin-bottom: 1.75rem;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy-dark);
+      padding: 0.85rem 1.6rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s, transform 0.15s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover { background: var(--gold-dark); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      margin-left: 0.6rem;
+    }
+    .btn-outline:hover { background: var(--gold); color: var(--navy-dark); }
+
+    /* Sections */
+    section {
+      padding: 3.5rem 1.25rem;
+    }
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+      text-align: center;
+    }
+    .lead {
+      text-align: center;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto 2.25rem;
+      font-size: 1.05rem;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      gap: 2rem;
+    }
+    @media (min-width: 768px) {
+      .about-grid { grid-template-columns: 1fr 1fr; align-items: center; }
+    }
+    .about-img {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .about-img img { width: 100%; height: 320px; object-fit: cover; }
+    .about-text h3 {
+      font-size: 1.25rem;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; }
+
+    /* Academics */
+    .cards {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 600px) {
+      .cards { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 900px) {
+      .cards { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card {
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-3px); }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card-body { padding: 1.25rem; }
+    .card h3 {
+      font-size: 1.1rem;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+    .card p { font-size: 0.95rem; color: var(--muted); }
+
+    /* Facilities */
+    .facilities {
+      background: var(--navy);
+      color: white;
+    }
+    .facilities h2 { color: white; }
+    .facilities .lead { color: rgba(255,255,255,0.8); }
+    .facility-list {
+      display: grid;
+      gap: 1rem;
+      list-style: none;
+    }
+    @media (min-width: 600px) {
+      .facility-list { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 900px) {
+      .facility-list { grid-template-columns: repeat(3, 1fr); }
+    }
+    .facility-item {
+      background: rgba(255,255,255,0.08);
+      padding: 1.15rem 1.25rem;
+      border-radius: 8px;
+      border-left: 3px solid var(--gold);
+    }
+
+    /* Admissions */
+    .admissions-box {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .admissions-box p { color: var(--muted); margin-bottom: 1.25rem; }
+    .admissions-box ul {
+      text-align: left;
+      max-width: 400px;
+      margin: 0 auto 1.5rem;
+      padding-left: 1.25rem;
+      color: var(--muted);
+    }
+    .admissions-box li { margin-bottom: 0.4rem; }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    @media (min-width: 700px) {
+      .contact-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .contact-card {
+      background: var(--white);
+      padding: 1.75rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    }
+    .contact-card h3 {
+      color: var(--navy);
+      margin-bottom: 1rem;
+      font-size: 1.15rem;
+    }
+    .contact-card p { margin-bottom: 0.5rem; color: var(--muted); }
+    .contact-card a { color: var(--navy); font-weight: 500; }
+    .contact-card a:hover { color: var(--gold-dark); }
+
+    /* Footer */
+    footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+      padding: 2rem 1.25rem;
+      font-size: 0.9rem;
+    }
+    footer strong { color: var(--gold); }
+
+    /* WhatsApp float */
+    .wa-float {
+      position: fixed;
+      bottom: 1.4rem;
+      right: 1.4rem;
+      z-index: 999;
+      width: 58px;
+      height: 58px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45);
+      transition: transform 0.2s;
+    }
+    .wa-float:hover { transform: scale(1.08); }
+    .wa-float svg { width: 30px; height: 30px; fill: white; }
+
+    /* Mobile nav */
+    @media (max-width: 768px) {
+      .menu-btn { display: block; }
+      nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--navy);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      nav.open { max-height: 280px; }
+      nav ul {
+        flex-direction: column;
+        padding: 1rem 1.25rem 1.25rem;
+        gap: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">Carmiville <span>Academy</span></div>
+      <button class="menu-btn" aria-label="Menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+      <nav>
+        <ul>
+          <li><a href="#home" onclick="document.querySelector('nav').classList.remove('open')">Home</a></li>
+          <li><a href="#about" onclick="document.querySelector('nav').classList.remove('open')">About</a></li>
+          <li><a href="#academics" onclick="document.querySelector('nav').classList.remove('open')">Academics</a></li>
+          <li><a href="#admissions" onclick="document.querySelector('nav').classList.remove('open')">Admissions</a></li>
+          <li><a href="#contact" onclick="document.querySelector('nav').classList.remove('open')">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Building strong foundations for every child</h1>
+      <p>Carmiville Academy provides nursery, primary and secondary education in Mararaba, Nasarawa State, with a focus on discipline, academic progress and character.</p>
+      <a href="#admissions" class="btn">Admissions</a>
+      <a href="#contact" class="btn btn-outline">Contact Us</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2>About the School</h2>
+      <p class="lead">Located in Mararaba, Carmiville Academy serves families from the surrounding communities with a structured learning environment and dedicated teaching staff.</p>
+      <div class="about-grid">
+        <div class="about-img">
+          <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80" alt="Classroom at Carmiville Academy">
+        </div>
+        <div class="about-text">
+          <h3>Our Approach</h3>
+          <p>We follow the Nigerian curriculum and place emphasis on literacy, numeracy, science and moral instruction. Classes are organised to give pupils the attention they need at each stage of their development.</p>
+          <p>The school environment is orderly and secure. Parents are encouraged to work closely with teachers so that progress at school is supported at home.</p>
+          <p>From the early years through secondary, the aim remains the same: clear teaching, steady improvement and respect for others.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="academics" style="background: var(--white);">
+    <div class="container">
+      <h2>Academics</h2>
+      <p class="lead">Programmes from the early years through senior secondary.</p>
+      <div class="cards">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80" alt="Early years classroom">
+          <div class="card-body">
+            <h3>Nursery &amp; Early Years</h3>
+            <p>Play-based learning that builds language, number sense and social skills in a calm setting.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&q=80" alt="Primary pupils reading">
+          <div class="card-body">
+            <h3>Primary</h3>
+            <p>Strong foundation in English, Mathematics, Basic Science, Social Studies and Civic Education.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80" alt="Secondary students">
+          <div class="card-body">
+            <h3>Junior &amp; Senior Secondary</h3>
+            <p>Preparation for external examinations with science, arts and commercial subject options.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="facilities">
+    <div class="container">
+      <h2>Facilities &amp; Activities</h2>
+      <p class="lead">Spaces and programmes that support both study and personal development.</p>
+      <ul class="facility-list">
+        <li class="facility-item">Classrooms suited to each age group</li>
+        <li class="facility-item">Science and computer practical sessions</li>
+        <li class="facility-item">Library and reading materials</li>
+        <li class="facility-item">Sports and physical education</li>
+        <li class="facility-item">Cultural and inter-house activities</li>
+        <li class="facility-item">Excursions and prize-giving events</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="admissions">
+    <div class="container">
+      <h2>Admissions</h2>
+      <div class="admissions-box">
+        <p>Places are available in nursery, primary and secondary classes for the current academic session. Entry is based on age, previous records and an assessment where required.</p>
+        <ul>
+          <li>Completed application form</li>
+          <li>Birth certificate or age declaration</li>
+          <li>Previous school report (where applicable)</li>
+          <li>Passport photographs</li>
+        </ul>
+        <a href="#contact" class="btn">Enquire about admission</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="background: var(--white);">
+    <div class="container">
+      <h2>Contact</h2>
+      <p class="lead">Visit the school or send a message. We respond during school hours.</p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Location</h3>
+          <p>Mararaba, Nasarawa State</p>
+          <p>Near the Abuja–Keffi corridor</p>
+          <p style="margin-top:1rem;"><strong>School hours</strong><br>Monday – Friday, 7:45 am – 3:00 pm</p>
+        </div>
+        <div class="contact-card">
+          <h3>Get in touch</h3>
+          <p>Phone / WhatsApp: <a href="tel:+2348012345678">0801 234 5678</a></p>
+          <p>Email: <a href="mailto:info@carmivilleacademy.ng">info@carmivilleacademy.ng</a></p>
+          <p style="margin-top:1rem; font-size:0.95rem;">Replace the phone and email above with the school’s official numbers once confirmed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Carmiville Academy</strong> · Mararaba, Nasarawa State</p>
+    <p style="margin-top:0.4rem; opacity:0.75;">Nursery · Primary · Secondary</p>
+  </footer>
+
+  <a href="https://wa.me/2348012345678?text=Hello%20Carmiville%20Academy%2C%20I%20would%20like%20information%20about%20admission." 
+     class="wa-float" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.001 2.001c-7.732 0-14 6.268-14 14 0 2.466.643 4.882 1.865 7.015L2.002 30l7.19-1.862A13.94 13.94 0 0 0 16 30c7.732 0 14-6.268 14-14s-6.268-14-14-14zm0 25.5a11.46 11.46 0 0 1-5.85-1.59l-.42-.25-4.27 1.105 1.14-4.16-.27-.43A11.44 11.44 0 0 1 4.5 16c0-6.35 5.15-11.5 11.5-11.5S27.5 9.65 27.5 16 22.35 27.5 16 27.5zm6.32-8.58c-.35-.17-2.07-1.02-2.39-1.14-.32-.12-.55-.17-.78.17-.23.35-.9 1.14-1.1 1.37-.2.23-.4.26-.75.09-.35-.17-1.48-.55-2.82-1.74-1.04-.93-1.74-2.08-1.94-2.43-.2-.35-.02-.54.15-.71.15-.15.35-.4.52-.6.17-.2.23-.35.35-.58.12-.23.06-.43-.03-.6-.09-.17-.78-1.88-1.07-2.58-.28-.68-.57-.59-.78-.6h-.67c-.23 0-.6.09-.91.43-.32.35-1.2 1.17-1.2 2.85s1.23 3.3 1.4 3.53c.17.23 2.42 3.7 5.86 5.18 2.18.94 3.04.81 4.1.76.63-.03 2.07-.84 2.36-1.66.29-.82.29-1.52.2-1.66-.09-.14-.32-.23-.67-.4z"/></svg>
+  </a>
+
+</body>
+</html>
